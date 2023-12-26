@@ -28,15 +28,15 @@ MODULOS del PROBLEMA:
 /*______________________________________VARIABLES Y CONSTANTES GLOBALES_____________________________________*/
 //Simula una base de datos minima:
 
-const producto_1= 10000
+const producto_1= parseInt(5000)
 
-const producto_2= 20000
+const producto_2= parseInt(4000)
 
-const producto_3= 30000
+const producto_3= parseInt(3000)
 
-const producto_4= 40000
+const producto_4= parseInt(2000)
 
-const producto_5= 50000
+const producto_5= parseInt(1000)
 
 
 
@@ -74,9 +74,9 @@ function main() {
 
 
 	while (preguntar==1) {
-		alert("paso 1")
+		
 		menu(nombre)
-		alert("paso 5")
+		
 
 		micro_procesos(nombre)
 
@@ -113,10 +113,7 @@ function main() {
 
 function menu(nombre) {
 
-	alert("paso 2")
-	opcion=parseInt(prompt("Hola   Le presentamos el MENU PRESIONE: \n 1 : Si desea saber el Producto con MENOR PRECIO \n 2: Proucto MAYOR PRECIO \n 3: Mayor a \n 4: Menor a \n 5: Igual a "))
-
-	alert("paso 3")
+	opcion=parseInt(prompt("Hola   Le presentamos el MENU PRESIONE: \n 1 : Si desea saber el Producto con MAYOR PRECIO(+) \n 2: Producto MENOR(-) PRECIO \n 3: Mayor a... \n 4: Menor a... \n 5: Igual a... "))
 
 	//==============================================================
 	//Verificacion
@@ -128,7 +125,6 @@ function menu(nombre) {
 	}
 	//==============================================================
 
-	alert("paso 4")
 }
 
 
@@ -136,9 +132,10 @@ function menu(nombre) {
 //__________________MICRO-PROCESOS________________
 
 
-let mayor=0;
-let menor=0;
-
+let mayor=parseInt(0);
+let menor=parseInt(0);
+let igual=parseInt(0);
+let senal=0;
 
 function micro_procesos(nombre) {
 
@@ -147,12 +144,10 @@ function micro_procesos(nombre) {
 
 	let precio_ingresado= 0
 
-	alert("paso 6")
 	switch (opcion) {
 		case 1:
 			//===============================
 			//Producto MAYOR PRECIO
-			alert("paso 6.1")
 			filtrar_Mayor_Menor()
 
 			alert("El PRODUCTO MAS CARO ES: "+ mayor)
@@ -166,7 +161,7 @@ function micro_procesos(nombre) {
 			//Producto MENOR PRECIO
 			filtrar_Mayor_Menor(mayor, menor)
 
-			alert("El PRODUCTO MAS BARATO ES: "+ mayor)
+			alert("El PRODUCTO MAS BARATO ES: "+ menor)
 
 			break;
 		case 3:
@@ -174,23 +169,28 @@ function micro_procesos(nombre) {
 			//Producto MAYOR A....
 			precio_ingresado=parseFloat(prompt("Ingrese un precio en numeros, para comparar con nuestros productos: "))
 			
-			filtrar_MAYOR_a(precio_ingresado)
+
+			console.log("LISTA DE PRODUCTOS, con PRECIO MAYOR a....: "+precio_ingresado+"\n\n")
+			parseInt(senal=1)
+			filtrar_MAYOR_a_MENOR_a_IGUAL_a(precio_ingresado)
 			
 			break;
 		case 4:
 			//===============================
 			//Producto MENOR A....
 			precio_ingresado=parseFloat(prompt("Ingrese un precio en numeros, para comparar con nuestros productos: "))
-			
-			filtrar_MENOR_a(precio_ingresado)
+			senal=2
+			console.log("LISTA DE PRODUCTOS, con PRECIO MENOR a....: "+precio_ingresado+"\n\n")
+			filtrar_MAYOR_a_MENOR_a_IGUAL_a(precio_ingresado)
 
 			break;
 		case 5:
 			//===============================
 			//Producto IGUAL A....
 			precio_ingresado=parseFloat(prompt("Ingrese un precio en numeros, para comparar con nuestros productos: "))
-			
-			filtrar_IGUAL_a(precio_ingresado)
+			senal=3
+			console.log("LISTA DE PRODUCTOS, con PRECIO IGUAL a....: "+precio_ingresado+"\n\n")
+			filtrar_MAYOR_a_MENOR_a_IGUAL_a(precio_ingresado)
 
 
 			break;
@@ -200,7 +200,7 @@ function micro_procesos(nombre) {
 			break;
 	}
 
-	alert("paso 9")
+
 }
 
 
@@ -208,193 +208,128 @@ function micro_procesos(nombre) {
 /*#################################################################*/
 //________________________MAYOR-MENOR________________
 function filtrar_Mayor_Menor() {
-	alert("paso 7")
 	let contador=0
 
-	let aux= producto_2 
+	let aux
 
 	mayor=producto_1
 	menor=producto_1
-
-	alert("PRODUCTO: "+aux)
 
 	//===================================================================================================
 	//Hola porsupuesto deberia UTILIZAR UN ARRAY o los hijos de un objeto, pero no me lo pide la consigna
 
 
 	do{ 
-		alert("PRODUCTO B: "+aux)
-		if(aux!=mayor && aux!=menor){
+		contador++
+		
+		switch (contador) {
+			case 1:
+				aux=producto_1
+				break;
+			case 2:
+				aux=producto_2
+				break;
+			case 3:
+				aux=producto_3
+				break;
+			case 4:
+				aux=producto_4
+				break;
+			case 5:
+				aux=producto_5
+				break;
+			default:
+				
+				break;
+		}
+
+
+		if(aux!=mayor){
 			if(aux>mayor){
 				//MAYOR
 				mayor=aux
 			}else{
-				//MENOR
-				menor=aux
+				if(aux!=menor){
+					//MENOR
+					menor=aux
+				}
 			}	
 		}else{
 			//IGUAL
 			//nada
 		}
 
-		contador++
-		alert("PRODUCTO C: "+aux)
-
-		switch (contador) {
-			case 1:
-				aux=producto_3
-				break;
-			case 2:
-				aux=producto_4
-				break;
-			case 3:
-				aux=producto_5
-			default:
-				
-				break;
-		}
-		alert("PRODUCTO D: "+aux)
-
-
-	}while(aux != producto_5); //CUando sea igual deja de comparar y reasignar
-
-	alert("PRODUCTO E: "+aux)
-
-
+	}while(aux != producto_5); //CUando sea igual deja de comparar y reasignar //ERROR: Aqui esta el error.
 	//===================================================================================================
-	alert("paso 8")
-
 
 }
 
 
 /*#################################################################*/
 //______________FILTRAR MAYOR A________________
-function filtrar_MAYOR_a(precio_ingresado) {
+function filtrar_MAYOR_a_MENOR_a_IGUAL_a(precio_ingresado) {
 	let contador=0
-	let aux= producto_2 
 
+	let aux=0
 
-
-	console.log("LISTA DE PRODUCTOS, con PRECIO MAYOR a....: "+precio_ingresado+"\n\n")
-
+	mayor=producto_1
+	menor=producto_1
 
 	do{ 
 
-		if(aux!=mayor && aux!=menor){
-			if(aux>mayor){
-				//MAYOR
-				console.log("Precio ingresado: "+precio_ingresado+"\nPuesto:"+ contador+" precio"+aux)
-			}else{
-				//MENOR
-				console.log("Precio ingresado: "+precio_ingresado+"\nPuesto:"+ contador+" precio"+aux)
-			}	
-		}else{
-			//IGUAL
-			console.log("Precio ingresado: "+precio_ingresado+"\nPuesto:"+ contador+" precio"+aux)
-		}
-
 		contador++
-
+		
 		switch (contador) {
 			case 1:
-				aux=producto_3
+				aux=producto_1
 				break;
 			case 2:
-				aux=producto_4
+				aux=producto_2
 				break;
 			case 3:
+				aux=producto_3
+				break;
+			case 4:
+				aux=producto_4
+				break;
+			case 5:
 				aux=producto_5
+				break;
 			default:
 				
 				break;
 		}
 
-	}while(aux != producto_5); //CUando sea igual deja de comparar y reasignar
-	//===================================================================================================
-
-}
-
-/*#################################################################*/
-//______________FILTRAR MENOR A________________
-function filtrar_MENOR_a(precio_ingresado) {
-	let contador=0
-	let aux= producto_2 
-
-	console.log("LISTA DE PRODUCTOS, con PRECIO IGUAL a....: "+precio_ingresado+"\n\n")
-
-
-	do{ 
 
 		if(aux!=precio_ingresado){
-			if(aux<precio_ingresado){
-				//MENOR
-				console.log("Precio ingresado: "+precio_ingresado+"\nPuesto:"+ contador+" precio"+aux)
+			if(aux>precio_ingresado && senal==1 ){
+				//MAYOR
+				console.log("Precio ingresado: "+precio_ingresado+"\nPuesto:"+ contador+" precio: "+aux)
 			}
 		}
 
 
-		contador++
-
-		switch (contador) {
-			case 1:
-				aux=producto_3
-				break;
-			case 2:
-				aux=producto_4
-				break;
-			case 3:
-				aux=producto_5
-			default:
-				
-				break;
+		if(aux!=precio_ingresado){
+			if(aux<precio_ingresado && senal==2){
+				//MAYOR
+				console.log("Precio ingresado: "+precio_ingresado+"\nPuesto:"+ contador+" precio: "+aux)
+			}
 		}
+
+
+		if(aux==precio_ingresado && senal==3){
+			//MENOR
+			console.log("Precio ingresado: "+precio_ingresado+"\nPuesto:"+ contador+" precio: "+aux)
+		}
+
+
 
 	}while(aux != producto_5); //CUando sea igual deja de comparar y reasignar
 	//===================================================================================================
 
-}
-
-/*#################################################################*/
-//______________FILTRAR IGUAL A________________
-function filtrar_IGUAL_a(precio_ingresado) {
-	let contador=0
-	let aux= producto_2 
-
-	console.log("LISTA DE PRODUCTOS, con PRECIO IGUAL a....: "+precio_ingresado+"\n\n")
-
-
-	do{ 
-
-		if(aux===precio_ingresado){
-			//IGUAL
-			console.log("Precio ingresado: "+precio_ingresado+"\nPuesto:"+ contador+" precio"+aux)
-		}
-
-
-		contador++
-
-		switch (contador) {
-			case 1:
-				aux=producto_3
-				break;
-			case 2:
-				aux=producto_4
-				break;
-			case 3:
-				aux=producto_5
-			default:
-				
-				break;
-		}
-
-	}while(aux != producto_5); //CUando sea igual deja de comparar y reasignar
-	//===================================================================================================
+	//ERROR: Resolver si no existe ningun producto, mayor, menor o igual
 
 }
-
-
-
 
 /*##############################################################################################################*/
 /*##############################################################################################################*/
@@ -407,7 +342,6 @@ function filtrar_IGUAL_a(precio_ingresado) {
 //console.warn("hola 3") //SALE POR CONSOLA
 
 
-
-main()
+//Por favor, invoque "main()" desde la consola, presionando f12, gracias.
 
 
