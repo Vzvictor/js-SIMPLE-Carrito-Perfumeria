@@ -28,15 +28,15 @@ MODULOS del PROBLEMA:
 /*______________________________________VARIABLES Y CONSTANTES GLOBALES_____________________________________*/
 //Simula una base de datos minima:
 
-//const producto_1=
+const producto_1= 10000
 
-//const producto_2=
+const producto_2= 20000
 
-//const producto_3=
+const producto_3= 30000
 
-//const producto_4=
+const producto_4= 40000
 
-//const producto_5=
+const producto_5= 50000
 
 
 
@@ -49,18 +49,19 @@ MODULOS del PROBLEMA:
 /*#################################################################*/
 //______________FUNCION PRINCIPAL (MAIN=Coordinador)________________
 
+let opcion=0;
+
+
 function main() {
 	/*========================================*/
 	//___Variables de inicio del programa____
 	let nombre
-	let preguntar= true
+	let preguntar= 1
 
 
 	/*=======================================*/
 	//___________Variables de menu____________
-	let opcion=0
-
-
+	
 	/*=======================================*/
 	/*=======================================*/
 	/*=======================================*/
@@ -68,21 +69,19 @@ function main() {
 
 	alert("Buenas, Bienvenido")
 	nombre=prompt("Me podrias dar tu NOMBRE: ")
-	alert("Muchas gracias")
+	//alert("Muchas gracias")
 
 
 
-	while (preguntar) {
-		menu(opcion, nombre)
+	while (preguntar==1) {
+		alert("paso 1")
+		menu(nombre)
+		alert("paso 5")
 
-		micro_procesos()
+		micro_procesos(nombre)
 
-		preguntar= prompt("Desea iniciar de nuevo?: Presione: \n 1 Continuar \n 0 Terminar")
-		if(preguntar==1){
-			preguntar=true
-		}else{
-			preguntar=false
-		}
+		preguntar= parseInt(prompt("Desea iniciar de nuevo?: Presione: \n 1 Continuar \n 0 Terminar"))
+	
 		//NOTA: POner verificacion
 
 	}
@@ -111,42 +110,50 @@ function main() {
 /*#################################################################*/
 //_____________________________MENU_________________________________
 
-function menu(nombre, opcion) {
 
+function menu(nombre) {
 
-	opcion=prompt("Hola  "+ nombre +"  Le presentamos el MENU PRESIONE: \n 1 : Si desea saber el Producto con MENOR PRECIO \n 2: Proucto MAYOR PRECIO \n 3: Mayor a \n 4: Menor a \n 5: Igual a ")
+	alert("paso 2")
+	opcion=parseInt(prompt("Hola   Le presentamos el MENU PRESIONE: \n 1 : Si desea saber el Producto con MENOR PRECIO \n 2: Proucto MAYOR PRECIO \n 3: Mayor a \n 4: Menor a \n 5: Igual a "))
 
+	alert("paso 3")
 
 	//==============================================================
 	//Verificacion
 	while(opcion == "" || opcion == null || (opcion!=1 && opcion!=2 && opcion!=3 && opcion!=4 && opcion!=5 )){
 		console.warn("ERROR Ingrese una opcion valida: ")
-		opcion=prompt("Hola  "+ nombre +"  Le presentamos el MENU PRESIONE: \n 1 : Si desea saber el Producto con MENOR PRECIO \n 2: Proucto MAYOR PRECIO \n 3: Mayor a \n 4: Menor a \n 5: Igual a ")
+		//parseInt(opcion)=prompt("Hola  "+ nombre +"  Le presentamos el MENU PRESIONE: \n 1 : Si desea saber el Producto con MENOR PRECIO \n 2: Proucto MAYOR PRECIO \n 3: Mayor a \n 4: Menor a \n 5: Igual a ")
+		opcion=parseInt(prompt("Hola  "+ nombre +"  Le presentamos el MENU PRESIONE: \n 1 : Si desea saber el Producto con MENOR PRECIO \n 2: Proucto MAYOR PRECIO \n 3: Mayor a \n 4: Menor a \n 5: Igual a "))
+
 	}
 	//==============================================================
 
-
+	alert("paso 4")
 }
 
 
 /*#################################################################*/
 //__________________MICRO-PROCESOS________________
 
-function micro_procesos(nombre, opcion) {
+
+let mayor=0;
+let menor=0;
+
+
+function micro_procesos(nombre) {
 
 	/*======================================================*/
 	/*________Variables de las funciones________*/
-	const mayor=null
-	const menor=null
 
 	let precio_ingresado= 0
 
-
+	alert("paso 6")
 	switch (opcion) {
 		case 1:
 			//===============================
 			//Producto MAYOR PRECIO
-			filtrar_Mayor_Menor(mayor, menor)
+			alert("paso 6.1")
+			filtrar_Mayor_Menor()
 
 			alert("El PRODUCTO MAS CARO ES: "+ mayor)
 
@@ -165,7 +172,7 @@ function micro_procesos(nombre, opcion) {
 		case 3:
 			//===============================
 			//Producto MAYOR A....
-			precio_ingresado=prompt("Ingrese un precio en numeros, para comparar con nuestros productos: ")
+			precio_ingresado=parseFloat(prompt("Ingrese un precio en numeros, para comparar con nuestros productos: "))
 			
 			filtrar_MAYOR_a(precio_ingresado)
 			
@@ -173,11 +180,17 @@ function micro_procesos(nombre, opcion) {
 		case 4:
 			//===============================
 			//Producto MENOR A....
+			precio_ingresado=parseFloat(prompt("Ingrese un precio en numeros, para comparar con nuestros productos: "))
+			
+			filtrar_MENOR_a(precio_ingresado)
 
 			break;
 		case 5:
 			//===============================
-			//Producto MENOR A....
+			//Producto IGUAL A....
+			precio_ingresado=parseFloat(prompt("Ingrese un precio en numeros, para comparar con nuestros productos: "))
+			
+			filtrar_IGUAL_a(precio_ingresado)
 
 
 			break;
@@ -187,13 +200,15 @@ function micro_procesos(nombre, opcion) {
 			break;
 	}
 
+	alert("paso 9")
 }
 
 
 
 /*#################################################################*/
 //________________________MAYOR-MENOR________________
-function filtrar_Mayor_Menor(precio_ingresado) {
+function filtrar_Mayor_Menor() {
+	alert("paso 7")
 	let contador=0
 
 	let aux= producto_2 
@@ -201,20 +216,21 @@ function filtrar_Mayor_Menor(precio_ingresado) {
 	mayor=producto_1
 	menor=producto_1
 
+	alert("PRODUCTO: "+aux)
 
 	//===================================================================================================
 	//Hola porsupuesto deberia UTILIZAR UN ARRAY o los hijos de un objeto, pero no me lo pide la consigna
 
 
 	do{ 
-
+		alert("PRODUCTO B: "+aux)
 		if(aux!=mayor && aux!=menor){
 			if(aux>mayor){
 				//MAYOR
-				mayor=aux2
+				mayor=aux
 			}else{
 				//MENOR
-				menor=aux2
+				menor=aux
 			}	
 		}else{
 			//IGUAL
@@ -222,6 +238,7 @@ function filtrar_Mayor_Menor(precio_ingresado) {
 		}
 
 		contador++
+		alert("PRODUCTO C: "+aux)
 
 		switch (contador) {
 			case 1:
@@ -230,14 +247,22 @@ function filtrar_Mayor_Menor(precio_ingresado) {
 			case 2:
 				aux=producto_4
 				break;
-			default:
+			case 3:
 				aux=producto_5
+			default:
+				
 				break;
 		}
+		alert("PRODUCTO D: "+aux)
+
 
 	}while(aux != producto_5); //CUando sea igual deja de comparar y reasignar
-	//===================================================================================================
 
+	alert("PRODUCTO E: "+aux)
+
+
+	//===================================================================================================
+	alert("paso 8")
 
 
 }
@@ -278,8 +303,10 @@ function filtrar_MAYOR_a(precio_ingresado) {
 			case 2:
 				aux=producto_4
 				break;
-			default:
+			case 3:
 				aux=producto_5
+			default:
+				
 				break;
 		}
 
@@ -290,7 +317,7 @@ function filtrar_MAYOR_a(precio_ingresado) {
 
 /*#################################################################*/
 //______________FILTRAR MENOR A________________
-function filtrar_MENOR_a(argument) {
+function filtrar_MENOR_a(precio_ingresado) {
 	let contador=0
 	let aux= producto_2 
 
@@ -316,8 +343,10 @@ function filtrar_MENOR_a(argument) {
 			case 2:
 				aux=producto_4
 				break;
-			default:
+			case 3:
 				aux=producto_5
+			default:
+				
 				break;
 		}
 
@@ -328,7 +357,7 @@ function filtrar_MENOR_a(argument) {
 
 /*#################################################################*/
 //______________FILTRAR IGUAL A________________
-function filtrar_IGUAL_a(argument) {
+function filtrar_IGUAL_a(precio_ingresado) {
 	let contador=0
 	let aux= producto_2 
 
@@ -352,8 +381,10 @@ function filtrar_IGUAL_a(argument) {
 			case 2:
 				aux=producto_4
 				break;
-			default:
+			case 3:
 				aux=producto_5
+			default:
+				
 				break;
 		}
 
@@ -370,13 +401,13 @@ function filtrar_IGUAL_a(argument) {
 /*________________________________________LLAMADO DE LAS FUNCIONES______________________________________________*/
 /*##############################*/
 
-console.log("hola") //SALE POR CONSOLA
-alert("hola 2") //Es CARTEL
-confirm("hola A")//Es CARTEL
-console.warn("hola 3") //SALE POR CONSOLA
+//console.log("hola") //SALE POR CONSOLA
+//alert("hola 2") //Es CARTEL
+//confirm("hola A")//Es CARTEL
+//console.warn("hola 3") //SALE POR CONSOLA
 
 
 
-
+main()
 
 
