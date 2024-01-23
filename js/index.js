@@ -1,6 +1,8 @@
 /*
 Vazquez Victor Esteban
 COSIGNAS:
+===========================================================
+_________________PRE- ENTREGA 1___________________________
 
 	_Variables / COnstantes
 	_Interaccion con el usuario:
@@ -12,15 +14,79 @@ COSIGNAS:
 
 	_Funciones js
 
-
+===============================
 MI CODIGO:
 MODULOS clasicos:
-	_Ingreso 
+	_main
+	_menu
+	_micro-procesos
+
 
 
 
 MODULOS del PROBLEMA:
+	_micro-procesos
+
+	_filtrar_Mayor_Menor()
+	_filtrar_MAYOR_a_MENOR_a_IGUAL_a(precio_ingresado)
+
+================================
+
+===========================================================
+===========================================================
+_________________PRE- ENTREGA 2___________________________
+
+	_Variables / COnstantes
+	_Interaccion con el usuario:
+		(Prompt, Alert, Confirm, Console)
+
+	_Ciclo de Interaccion (For, While, Do-while)
+
+	_Un condicional
+
+	_Funciones js
+___________________________
+	_Agregar OBJETOS
+	
+
+
+
+
+
+
+
+
+
+===============================
+MI CODIGO:
+MODULOS clasicos:
+	_main
+	_menu
+	_micro-procesos
+
+
+
+
+MODULOS del PROBLEMA:
+	_micro-procesos
+
+	_filtrar_Mayor_Menor()
+	_filtrar_MAYOR_a_MENOR_a_IGUAL_a(precio_ingresado)
+
+================================
+
+
+
+
+
+
+
+
+
+===========================================================
+
 */
+
 
 
 /*##############################################################################################################*/
