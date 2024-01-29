@@ -191,7 +191,8 @@ Hola profe, aqui dejo mis dudas:
 
 /*========================================*/
 //________________ARRAYs____________________
-const productos= []
+
+
 
 
 
@@ -200,6 +201,19 @@ const productos= []
 const opcion_cliente_dueño=0
 
 const opcion_menu_1=0
+
+
+
+/*##############################################################################################################*/
+/*##############################################################################################################*/
+/*____________________________________________OBJETOS_____________________________________*/
+
+const deposito= []
+
+
+const carrito= new nuevo_carrito()
+
+
 
 
 
@@ -249,7 +263,7 @@ function main() {
 	//====================================
 	//____VERIFICAR ESTADO DEL CARRITO___
 	if(carrito=0){
-		llenar_carrito_aleatorio()
+		llenar_deposito_de_productos_aleatorio()
 
 	}
 
@@ -311,7 +325,7 @@ function main() {
 
 
 /*#################################################################*/
-//_____________________________MODULO INCIAR SECCION_________________________________
+//_____________________MODULO INCIAR SECCION_________________________
 
 
 function iniciar_session(nombre) {
@@ -330,6 +344,37 @@ function iniciar_session(nombre) {
 
 }
 
+
+/*#################################################################*/
+//_____________________LLENAR_CARRITO_ALEATORIO_________________________
+
+function llenar_deposito_de_productos_aleatorio() {
+	let nombre="a"
+	let precio= 0
+
+	/*crearemos 20 productos, aun nose como podria llenarlo aleatoriamente mientras crearemos array
+	for (let recorrer=1; i<=20; i++){
+
+		productos.push(new producto())	
+
+
+	}
+
+	*/
+	//Por ahora realizare el llenado manual
+	deposito.push(new producto("mouse", 23)
+	deposito.push(new producto("teclado", 23)		
+	deposito.push(new producto("mouse", 23)
+	deposito.push(new producto("mouse", 23)
+	deposito.push(new producto("mouse", 23)
+	deposito.push(new producto("mouse", 23)	
+	deposito.push(new producto("mouse", 23)
+	deposito.push(new producto("mouse", 23)
+	deposito.push(new producto("mouse", 23)
+	deposito.push(new producto("mouse", 23)
+
+
+}
 
 
 /*##############################################################################################################*/
