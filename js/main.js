@@ -363,15 +363,15 @@ function llenar_deposito_de_productos_aleatorio() {
 	*/
 	//Por ahora realizare el llenado manual
 	deposito.push(new producto("mouse", 23)
-	deposito.push(new producto("teclado", 23)		
-	deposito.push(new producto("mouse", 23)
-	deposito.push(new producto("mouse", 23)
-	deposito.push(new producto("mouse", 23)
-	deposito.push(new producto("mouse", 23)	
-	deposito.push(new producto("mouse", 23)
-	deposito.push(new producto("mouse", 23)
-	deposito.push(new producto("mouse", 23)
-	deposito.push(new producto("mouse", 23)
+	deposito.push(new producto("teclado", 10)		
+	deposito.push(new producto("pantalla led", 30)
+	deposito.push(new producto("pantalla lcd", 40)
+	deposito.push(new producto("Procesador ryzen_5", 55)
+	deposito.push(new producto("Procesador intel_i3",66)	
+	deposito.push(new producto("Antena Tp linck", 70)
+	deposito.push(new producto("Parlantes pc", 80)
+	deposito.push(new producto("Pendrive Kingston", 90)
+	deposito.push(new producto("Pendrive HP", 4)
 
 
 }
