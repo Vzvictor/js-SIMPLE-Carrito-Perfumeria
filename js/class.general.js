@@ -21,13 +21,13 @@ class carrito{
 	//================================
 	//__________Constructor___________
 	constructor(){
-		this.producto= []
+		this.productos= []
 	}
 
 	//================================
 	//__________Metodos___________
 
-	obtenerTotal(){
+	obtenerTotal(){ //Suma el PRECIO DEL CARRITO
 		
 	}
 }
