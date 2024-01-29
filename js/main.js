@@ -288,6 +288,7 @@ function main() {
 			//====================================
 			//_________MODULOS_DUEÑO______
 			//MODULO: Verificacion de usuario y contraseña
+			//NOTA PARA OTROS: Aun no he creado estos modulos, pero la idea es que el dueño pueda agregar o quitar o modificar cosas del DEPOSITO
 
 		}
 
@@ -348,10 +349,12 @@ function iniciar_session(nombre) {
 /*#################################################################*/
 //_____________________LLENAR_CARRITO_ALEATORIO_________________________
 
-function llenar_deposito_de_productos_aleatorio() {
+
+function llenar_deposito_de_productos_aleatorio() { //NOTA PARA MI: El apartado MODLULO_DUEÑO tiene una funcion de "llenar_deposito" manual  
 	let nombre="a"
 	let precio= 0
 
+	//NOTA AL MARGEN 1: 
 	/*crearemos 20 productos, aun nose como podria llenarlo aleatoriamente mientras crearemos array
 	for (let recorrer=1; i<=20; i++){
 
@@ -361,7 +364,8 @@ function llenar_deposito_de_productos_aleatorio() {
 	}
 
 	*/
-	//Por ahora realizare el llenado manual
+
+	//NOTA AL MARGEN 2: Por ahora realizare el llenado manual
 	deposito.push(new producto("mouse", 23)
 	deposito.push(new producto("teclado", 10)		
 	deposito.push(new producto("pantalla led", 30)
