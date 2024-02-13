@@ -24,7 +24,7 @@ body{
 	font-family: "preconnect";
 	margin:auto;
 	width: 100%;
-	height: 100%;
+	height: 92%;
 }
 
 
@@ -67,7 +67,7 @@ body #fondo_home_interno{
 	background-size: fill;
 	/*___Tamaño___*/
 	width: 100%;
-	height: 100%;
+	height: 92% !important;
 	margin:auto;
 	
 
@@ -304,7 +304,7 @@ main #populares .ventana_populares{
 	box-shadow: 1px 1px 10px gray;
 
 	/*___Tamaño___*/
-	width: 22.5rem;
+	width: 35rem;
 	height: 230px;
 	
 	/*___Box modeling___*/
@@ -651,8 +651,8 @@ main .item-4 .ventana-todos-los-perfumes{
 	font-size: 25px;
 
 	/*___TAMAÑO___*/
-	width: 360px;
-	height: 38px;
+	width: 37rem;
+	height: 100%;
 
 	/*___FLEX___*/
 	display: flex;
